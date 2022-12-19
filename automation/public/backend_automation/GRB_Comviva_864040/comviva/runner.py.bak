@@ -1,0 +1,76 @@
+import json
+import numbers
+
+import pandas as pd
+
+from brand.app.snapchat import SnapChat
+from brand.app.whatsapp import WhatsApp
+from brand.web.amazon import Amazon
+
+from brand.web.facebook import FacebBook
+from brand.web.google import Google
+from postmancode import update_recored
+
+
+class Runner:
+
+    def executeRequest(self):
+
+        df = pd.read_excel(
+            r'C:\xampp\htdocs\automation\public\backend_automation\user_three 275054\demo\data\BrandDetails.xlsx')
+
+        user_Id = ""
+
+        master_data = {}
+
+        for count, i in df.iterrows():
+
+            user_Id = df.at[0, 'Run by']
+
+            if i['Generate OTP'] == "Y":
+
+                # if str(i['Brand Name']).lower() == "facebook":
+                #     page_facebook = FacebBook()
+                #     fb_data = page_facebook.generateOTP(i['Brand URL'], i['Mobile Number'],i['Country Code'])
+                #     fb_result = {"Brand URL": i['Brand URL'], "Mobile Number": i['Mobile Number'],
+                #               "Device Name": i['Device Name'], "Device Id": i['Device id']}
+                #     fb_result.update(fb_data)
+                #     master_data.update({str(i['Brand Name']): fb_result})
+                #
+                # if str(i['Brand Name']).lower() == "google":
+                #     page_google = Google()
+                #     google_data = page_google.generateOTP(i['Brand URL'], i['Mobile Number'],i['Country Code'])
+                #     google_result = {"Brand URL": i['Brand URL'], "Mobile Number": i['Mobile Number'],
+                #               "Device Name": i['Device Name'], "Device Id": i['Device id'], "Run by": i['Run by']}
+                #     google_result.update(google_data)
+                #     master_data.update({str(i['Brand Name']): google_result})
+                #
+                # if str(i['Brand Name']).lower() == "whatsapp":
+                #     page_whatsapp = WhatsApp()
+                #     wa_data = page_whatsapp.generateOTP(i['Country Code'], i['Mobile Number'])
+                #     wa_result = {"Country Code": i['Country Code'], "Mobile Number": i['Mobile Number']}
+                #     wa_result.update(wa_data)
+                #     master_data.update({str(i['Brand Name']): wa_result})
+
+                if str(i['Brand Name']).lower() == "snapchat":
+                    page_snapchat = SnapChat()
+                    sc_data = page_snapchat.generateOTP(i['Country Code'], i['Mobile Number'])
+                    sc_result = {"Country Code": i['Country Code'], "Mobile Number": i['Mobile Number']}
+                    sc_result.update(sc_data)
+                    master_data.update({str(i['Brand Name']): sc_result})
+
+        automation_brand_data = {"user three": [master_data]}
+        json_object = json.dumps(automation_brand_data, indent=4)
+
+        print(automation_brand_data)
+
+        update_recored(automation_brand_data, user_Id)
+
+        with open("sample.json", "w") as outfile:
+            outfile.write(json_object)
+
+        return True
+
+
+otpRunner = Runner()
+otpRunner.executeRequest()

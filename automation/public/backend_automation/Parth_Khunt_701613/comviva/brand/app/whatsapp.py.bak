@@ -1,0 +1,50 @@
+import time
+
+from appium import webdriver as driver
+
+desired_caps = {
+
+    'deviceName': 'a8b0841e',
+    'platformName': 'android',
+    'appPackage': 'com.whatsapp',
+    'appActivity': 'com.whatsapp.Main',
+
+}
+
+driver = driver.Remote('http://localhost:4723/wd/hub', desired_caps)
+
+driver.find_element_by_id('eula_accept').click()
+time.sleep(5)
+
+driver.find_element_by_id('registration_country').click()
+time.sleep(5)
+
+driver.find_element_by_id('menuitem_search').click()
+
+driver.find_element_by_id('search_src_text').send_keys("United")
+time.sleep(5)
+
+driver.find_element_by_xpath('//android.widget.TextView[@text=\"United States\"]').click()
+time.sleep(5)
+
+driver.find_element_by_id('registration_phone').send_keys("2392532882")
+time.sleep(5)
+
+driver.find_element_by_id('registration_submit').click()
+time.sleep(5)
+
+driver.find_element_by_xpath('//android.widget.Button[@text=\"OK\"]').click()
+time.sleep(5)
+
+try:
+
+    driver.find_element_by_id('title_toolbar_text')
+    time.sleep(5)
+
+except:
+
+    driver.find_element_by_id('verify_with_sms_button').click()
+    time.sleep(5)
+
+    driver.find_element_by_id('title_toolbar_text')
+    time.sleep(5)

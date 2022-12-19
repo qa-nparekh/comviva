@@ -1,0 +1,121 @@
+import time
+import datetime
+
+import countrycode as countrycode
+from _multiprocessing import send
+from appium import webdriver as appDriver
+from faker import Faker
+
+
+class SnapChat:
+
+    def generateOTP(self, countrycode, mobilenumber):
+
+        try:
+            desired_caps = {
+
+                'udid': '45a1261',
+                'platformName': 'android',
+                'appPackage': 'com.snapchat.android',
+                'appActivity': 'com.snap.mushroom.MainActivity',
+                'app': r'C:\python_new_project\demo\brand\app\snapchat.apk',
+                'autoGrantPermissions': 'true'
+            }
+
+            driver = appDriver.Remote('http://localhost:4723/wd/hub', desired_caps)
+            time.sleep(5)
+
+            driver.find_element_by_id('signup_button_horizontal').click()
+            time.sleep(5)
+            #
+            # driver.find_element_by_xpath('//android.widget.TextView[@text=\"Continue\"]').click()
+            # time.sleep(5)
+
+            faker = Faker()
+            firstname = faker.first_name_male()
+
+            driver.find_element_by_id('display_name_first_name_field').send_keys(firstname)
+            time.sleep(5)
+
+            lastname = faker.last_name()
+            driver.find_element_by_id('display_name_last_name_field').send_keys(lastname )
+            time.sleep(5)
+
+            driver.find_element_by_xpath('//android.widget.TextView[@text=\"Sign Up & Accept\"]').click()
+            time.sleep(15)
+
+            currentmonth = datetime.now().month
+            print(currentmonth)
+            
+      
+
+
+
+            driver.find_element_by_xpath('//android.widget.Button[@text=\"Aug\"]').click()
+            time.sleep(5)
+
+            driver.find_element_by_xpath('//android.widget.TextView[@text=\"Continue\"]').click()
+            time.sleep(5)
+
+            driver.find_element_by_xpath('//android.widget.TextView[@text=\"Your username\"]')
+            time.sleep(5)
+
+            driver.find_element_by_xpath('//android.widget.TextView[@text=\"Continue\"]').click()
+            time.sleep(5)
+
+            # driver.back()
+            # time.sleep(5)
+
+            password = firstname+"@2004"
+            driver.find_element_by_id('password_form_field').send_keys(password)
+            time.sleep(5)
+
+            driver.find_element_by_xpath('//android.widget.TextView[@text=\"Continue\"]').click()
+            time.sleep(5)
+
+            # driver.find_element_by_id('com.snapchat.android:id/signup_with_phone_instead').click()
+            # time.sleep(5)
+
+            # driver.find_element_by_id('bottom_phone_country_code_field').clear()
+            # time.sleep(5)
+
+            # driver.find_element_by_id('bottom_phone_country_code_field').send_keys('1')
+            # time.sleep(5)
+
+            driver.find_element_by_id('top_country_code_display_textview').click()
+            time.sleep(5)
+
+            driver.find_element_by_id('input_field_edit_text').send_keys(countrycode)
+            time.sleep(5)
+
+            driver.find_element_by_xpath('//javaClass[@text=\"+255\"]').click()
+            time.sleep(10)
+
+            driver.find_element_by_id('bottom_phone_form_field').clear()
+            time.sleep(5)
+
+
+            driver.find_element_by_id('bottom_phone_form_field').send_keys(mobilenumber)
+            time.sleep(5)
+
+            driver.find_element_by_xpath('//android.widget.TextView[@text=\"Continue\"]').click()
+            time.sleep(5)
+
+            driver.find_element_by_xpath('//android.widget.TextView[@text=\"Enter Confirmation Code\"]').click()
+            time.sleep(5)
+
+
+            driver.quit()
+            print("Snapchat - OTP Generated Successfully !!!")
+            snapchat_resultdata = {"First Name": firstname, "Last Name": lastname,"Password": password,"Message": 'OTP generated successfully'}
+            return snapchat_resultdata
+
+
+
+        except:
+
+            driver.quit()
+            print("Failed to generate OTP for Snapchat !!! ")
+            snapchat_resultdata = {"First Name": firstname, "Last Name": lastname, "Password": password, "Message": 'Blocked OTP'}
+            return snapchat_resultdata
+

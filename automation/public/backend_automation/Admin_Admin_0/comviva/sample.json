@@ -1,0 +1,19 @@
+{
+    "Admin": [
+        {
+            "Google": {
+                "Brand URL": "https://accounts.google.com/signin/v2/identifier?flowName=GlifWebSignIn&flowEntry=ServiceLogin",
+                "Mobile Numer": 9824345559,
+                "Device Name": "samsung",
+                "Device Id": 1,
+                "Run by": 1,
+                "First Name": "Stuart",
+                "Last Name": "Brown",
+                "User Name": "Stuart143007uvc",
+                "Password": "Stuart@123",
+                "Confirm Password": "Stuart@123",
+                "Message": "Failed to generate OTP"
+            }
+        }
+    ]
+}

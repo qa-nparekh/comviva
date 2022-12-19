@@ -1,0 +1,18 @@
+{
+    "Admin": [
+        {
+            "Yahoo": {
+                "Brand URL": "https://login.yahoo.com/account/create?.lang=en-IN&.intl=in&.src=yhelp",
+                "Mobile Number": 9824345559,
+                "Device Name": "samsung",
+                "Device Id": 1,
+                "First Name": "Michael",
+                "Last Name": "Jackson",
+                "Number": "919824345559",
+                "Password": "yahooo@1990",
+                "year": 1966,
+                "message": "Failed to generated OTP"
+            }
+        }
+    ]
+}

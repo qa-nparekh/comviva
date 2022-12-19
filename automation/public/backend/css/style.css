@@ -1,0 +1,119 @@
+
+.help-block {
+    color: red !important;
+}
+
+.has-my-error {
+    color: red !important;
+}
+
+#loader {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.25) url(../images/loader.svg) no-repeat center center;
+    background-size: 125px 125px;
+    z-index: 10000;
+}
+
+.display-none {
+    display: none !important;
+}
+
+.aside-menu .menu-nav > .menu-item.menu-item-active > .menu-heading, .aside-menu .menu-nav > .menu-item.menu-item-active > .menu-link {
+    background-color: #1b1b28 !important;
+}
+
+.switch.switch-outline.switch-success input:checked ~ span:before {
+    border: 2px solid #1BC5BD !important;
+    background-color: transparent;
+}
+.switch.switch-outline.switch-success input ~ span:before{
+    border: 2px solid red !important;
+    background-color: transparent;
+}
+
+.switch.switch-outline.switch-success input:checked ~ span:after {
+    color: #ffffff;
+    background-color: #1BC5BD !important;
+}
+
+.switch.switch-outline.switch-success input ~ span:after {
+    color: #ffffff;
+    background-color: red !important;
+}
+
+.switch.switch-icon input ~ span:after {
+    font-family: Ki !important;
+    font-style: normal !important;
+    font-weight: normal !important;
+    font-variant: normal !important;
+    line-height: 1 !important;
+    text-decoration: inherit !important;
+    text-rendering: optimizeLegibility !important;
+    text-transform: none !important;
+    -moz-osx-font-smoothing: grayscale !important;
+    -webkit-font-smoothing: antialiased !important;
+    font-smoothing: antialiased !important;
+    content: "No" !important;
+    line-height: 0 !important;
+}
+
+.switch.switch-icon input:checked ~ span:after {
+    font-family: Ki !important;
+    font-style: normal !important;
+    font-weight: normal !important;
+    font-variant: normal !important;
+    line-height: 1 !important;
+    text-decoration: inherit !important;
+    text-rendering: optimizeLegibility !important;
+    text-transform: none !important;
+    -moz-osx-font-smoothing: grayscale !important;
+    -webkit-font-smoothing: antialiased !important;
+    font-smoothing: antialiased !important;
+    content: "Yes" !important;
+    line-height: 0 !important;
+}
+
+
+.brand {
+    background-color: #ffffff !important;    
+}
+
+.aside-menu {
+    background-color: #ffffff !important;
+}
+
+.aside-menu .menu-nav > .menu-item.menu-item-active > .menu-heading, .aside-menu .menu-nav > .menu-item.menu-item-active > .menu-link {
+    background-color: #e51937 !important;
+}
+
+.aside-menu .menu-nav > .menu-item.menu-item-active > .menu-heading, .aside-menu .menu-nav > .menu-item.menu-item-active > .menu-link {
+    background-color: #e51937 !important;
+}
+
+.aside-menu .menu-nav > .menu-item.menu-item-active > .menu-heading, .aside-menu .menu-nav > .menu-item.menu-item-active > .menu-link {
+    background-color: #e51937 !important;
+}
+
+.aside {
+    background-color: #ffffff;
+}
+
+.aside-menu .menu-nav > .menu-item > .menu-heading .menu-text, .aside-menu .menu-nav > .menu-item > .menu-link .menu-text {
+    color: #000 !important;
+    font-weight: bold !important;
+}
+
+.aside-menu .menu-nav > .menu-item:not(.menu-item-parent):not(.menu-item-open):not(.menu-item-here):not(.menu-item-active):hover > .menu-heading, .aside-menu .menu-nav > .menu-item:not(.menu-item-parent):not(.menu-item-open):not(.menu-item-here):not(.menu-item-active):hover > .menu-link {
+    background-color: #ffffff;
+    color: var(--theme-color);
+}
+
+.select2 {
+    width: 100% !important;
+}
